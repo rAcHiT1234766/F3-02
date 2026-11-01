@@ -171,15 +171,15 @@ docs/            architecture, API, decisions, test results, guides
 
 ## Project status
 
-| Area                              | Status                                                                                               |
-| --------------------------------- | ---------------------------------------------------------------------------------------------------- |
-| Components, stories, tests        | Done                                                                                                 |
-| Figma tokens and Style Dictionary | Done                                                                                                 |
-| Light and dark themes             | Done                                                                                                 |
-| Chromatic visual testing          | Done                                                                                                 |
-| Manual NVDA review                | Done: 18 of 18 checks pass                                                                           |
-| Registry publication (semver)     | Published: `@rachitp72/foundation-ui@0.1.0` (MIT); 0.2.0 prepared ([release notes](docs/release.md)) |
-| Hosted demo                       | Planned; runs locally today                                                                          |
+| Area                              | Status                                                                                                |
+| --------------------------------- | ----------------------------------------------------------------------------------------------------- |
+| Components, stories, tests        | Done                                                                                                  |
+| Figma tokens and Style Dictionary | Done                                                                                                  |
+| Light and dark themes             | Done                                                                                                  |
+| Chromatic visual testing          | Done                                                                                                  |
+| Manual NVDA review                | Done: 18 of 18 checks pass                                                                            |
+| Registry publication (semver)     | Published: `@rachitp72/foundation-ui@0.2.0` (MIT); 0.1.0 before it ([release notes](docs/release.md)) |
+| Hosted demo                       | Planned; runs locally today                                                                           |
 
 Full status and next steps: [PROJECT-STATUS.md](PROJECT-STATUS.md). More detail: [progress](docs/progress.md), [architecture](docs/architecture.md),
 [API](docs/api.md), [decisions](docs/decisions.md), [release checklist](docs/release.md).

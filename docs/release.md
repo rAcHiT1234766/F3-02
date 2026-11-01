@@ -5,7 +5,7 @@ on npm, MIT licence. Versions follow semantic versioning. Before 1.0, a new feat
 breaking change increases the minor version (0.x.0) and a compatible bug fix increases the
 patch version (0.x.y). Every release is listed here with what changed and what apps must do.
 
-## 0.2.0 (prepared 1 November 2026)
+## 0.2.0 (1 November 2026)
 
 **Added**
 

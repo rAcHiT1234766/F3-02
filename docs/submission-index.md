@@ -11,7 +11,7 @@ Prepared locally; no Google Drive folder or shared links have been created.
 | Test evidence      | `docs/test-results.md`, manual-review queue, actual artifacts when present | See current report; no inferred passes                                                                                                           |
 | Presentation       | `docs/presentation.md`                                                     | Deck drafted (8 slides + 4 backups) with speaker notes; personalising and rehearsal pending                                                      |
 | Reflection         | `docs/reflection.md`                                                       | Owner's authentic substance pending                                                                                                              |
-| Published package  | Build/pack helper and release checklist                                    | Published 1 Nov 2026: https://www.npmjs.com/package/@rachitp72/foundation-ui (0.1.0, MIT)                                                        |
+| Published package  | Build/pack helper and release checklist                                    | Published 1 Nov 2026: https://www.npmjs.com/package/@rachitp72/foundation-ui (0.2.0, MIT)                                                        |
 | Visual regression  | Explicit Chromatic script/workflow                                         | Baseline build 1 (191 snapshots); regression build 2 caught 57 changes, denied. Storybook: https://main--6adb1ea72d119416b1620b45.chromatic.com/ |
 
 Once completed, assemble the seven folders described in the handover, include

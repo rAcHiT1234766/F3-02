@@ -21,7 +21,7 @@ Links: [GitHub](https://github.com/rAcHiT1234766/F3-02) · [Live Storybook](http
 | 4   | WCAG 2.2: axe and a real screen reader        | ✅ Done. axe passes on all 204 stories and in browser tests; NVDA 2026.3 review of the dashboard: 18 of 18 checks pass ([manual review](docs/manual-review.md)). |
 | 5   | Light and dark themes from tokens             | ✅ Done                                                                                                                                                          |
 | 6   | Jest/RTL and Chromatic                        | ✅ Done: 72 unit tests (97% coverage), 13 interaction tests, Chromatic baseline with reviewed changes                                                            |
-| 7   | Storybook docs and publish with semver        | ✅ Done. Documentation site is live; published to npm as [`@rachitp72/foundation-ui@0.1.0`](https://www.npmjs.com/package/@rachitp72/foundation-ui) (MIT).       |
+| 7   | Storybook docs and publish with semver        | ✅ Done. Documentation site is live; published to npm as [`@rachitp72/foundation-ui@0.2.0`](https://www.npmjs.com/package/@rachitp72/foundation-ui) (MIT).       |
 
 ## Submission deliverables
 
@@ -40,7 +40,7 @@ Links: [GitHub](https://github.com/rAcHiT1234766/F3-02) · [Live Storybook](http
 - Coverage: 97.4% statements, 90.4% branches, 99.3% functions, 98.4% lines
 - `npm run test:storybook`: 204 stories; 13 of 13 interaction tests pass; 204 of 204 axe scans with no violations
 - `npm run test:browser`: dashboard workflows, focus handling, 320px reflow and axe in both themes: pass
-- `npm run pack:check`: packed library installs, type-checks, builds and works in a separate app (rerun 1 Nov 2026); the published 0.1.0 also installs from npm and passes the same browser check.
+- `npm run pack:check`: packed library installs, type-checks, builds and works in a separate app (rerun 1 Nov 2026); the published 0.1.0 and 0.2.0 also install from npm and pass the same browser check.
 - Chromatic: baseline established; a deliberate regression (57 changes) was caught and denied
 - Lighthouse 13.5.0: desktop 100 / 100 / 100 / 100, mobile 99 / 100 / 100 / 100 (performance / accessibility / best practices / SEO)
 - DataGrid at 10,000 rows: every interaction under 6 ms in 0.2.0, search included; 0.1.0 took 16 ms to refine a search and 5.6 ms to tick a row on the same laptop ([before and after](docs/test-results.md#datagrid-020-memoisation))
@@ -55,7 +55,7 @@ Links: [GitHub](https://github.com/rAcHiT1234766/F3-02) · [Live Storybook](http
    a value-less `<progress>` bar itself; not a regression
    ([details](docs/test-results.md#chromatic-build-5-review)).
 2. ✅ **NVDA screen-reader review:** done 1 Nov 2026. 18 of 18 checks pass with no defects ([docs/manual-review.md](docs/manual-review.md)).
-3. ✅ **npm publication:** done 1 Nov 2026. `@rachitp72/foundation-ui@0.1.0` is live; a clean install from npm builds and passes the browser check.
+3. ✅ **npm publication:** done 1 Nov 2026. `@rachitp72/foundation-ui@0.1.0` is live; 0.2.0 followed the same day (DataGrid controlled selection and faster updates, [release notes](docs/release.md)). A clean install of each from npm builds and passes the browser check.
 4. ✅ **GitHub:** pushed 1 Nov 2026 to [rAcHiT1234766/F3-02](https://github.com/rAcHiT1234766/F3-02); CI passes.
 5. **Presentation and reflection.**
 
