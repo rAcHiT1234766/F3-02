@@ -3,6 +3,9 @@
 Date: 23 October 2026. Revision: initial commit `d03714a` on `main`. Scope: the 44-component library and
 employee dashboard, with design tokens exported from Figma. Automated results only.
 
+Updated 1 November 2026 for 0.2.0: Jest, coverage, Storybook, browser and package checks, sizes
+and the DataGrid before-and-after timings were rerun. Other rows are from 23 October unless dated.
+
 ## Environment
 
 Windows 10.0.26200; Node 24.16.0; npm 11.13.0; Chrome 155 (headless, puppeteer-core).
@@ -16,25 +19,25 @@ to be the latest toolchain.
 
 ## Results
 
-| Check                                  | Observed result                                                                                                                                                                                                                                                     | Limitations                                                                          |
-| -------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------ |
-| Token validation and Figma round trip  | 10 tests passed                                                                                                                                                                                                                                                     | Keys, references, cycles, dimensions, schema                                         |
-| Figma import                           | `radius.md` 0.625rem → 0.75rem imported; cards render 12px corners in Chrome                                                                                                                                                                                        | Tokens Studio 2.13.2 single-file export, kept at `packages/tokens/figma/tokens.json` |
-| Token contrast                         | 28 pairs passed                                                                                                                                                                                                                                                     | Opaque sRGB pairs; rendered contrast is covered by browser axe                       |
-| Jest/RTL                               | 69 tests in 11 suites passed                                                                                                                                                                                                                                        | jsdom has no layout; positioning and gestures are browser-checked                    |
-| Date conversion                        | Included above; runs in separate timezone processes                                                                                                                                                                                                                 | Gregorian YYYY-MM-DD only                                                            |
-| Coverage                               | 97.25% stmts, 90% branches, 99.25% funcs, 98.33% lines                                                                                                                                                                                                              | Thresholds in jest.config.cjs                                                        |
-| ESLint / TypeScript                    | Passed                                                                                                                                                                                                                                                              | Source, stories, tests, scripts and demo                                             |
-| UI, demo and Storybook builds          | Passed                                                                                                                                                                                                                                                              | Storybook built from the owner's environment                                         |
-| Browser workflows                      | Passed (`artifacts/browser-check.json`)                                                                                                                                                                                                                             | Headless Chrome; see checks list in the report                                       |
-| Browser axe                            | Passed: workbench, dashboard, gallery, dialogs, drawer, popover, menu; both themes                                                                                                                                                                                  | Menu scan disables only `region` (portalled to body)                                 |
-| Storybook interaction tests            | 12 play-function tests passed in headless Chrome (`npm run test:storybook`, `artifacts/storybook-check.json`)                                                                                                                                                       | Keyboard, focus, selection and date flows for 12 interactive components              |
-| Storybook axe                          | 203/203 stories scanned in Chrome, 0 violations                                                                                                                                                                                                                     | Each story in its default state plus the play-function end state                     |
-| Independent archive consumer           | Passed: install, types, build, browser interaction                                                                                                                                                                                                                  | Separate temp app; no Tailwind or source aliases                                     |
-| Tree-shaking                           | Button-only and DataGrid-only bundles: 0 calendar modules                                                                                                                                                                                                           | Measured in the independent consumer                                                 |
-| Screen reader / keyboard / zoom review | Not run                                                                                                                                                                                                                                                             | Requires a person with real assistive technology                                     |
-| Chromatic visual baseline              | Baseline build 1 (191 snapshots), updated by reviewed builds since; interaction stories snapshot open overlays. Clock frozen to 2026-10-23 during Chromatic runs so calendars do not change daily. Storybook: https://main--6adb1ea72d119416b1620b45.chromatic.com/ | See regression demonstration below                                                   |
-| Package publication / demo hosting     | Not run                                                                                                                                                                                                                                                             | Access, destinations and authorization unresolved                                    |
+| Check                                 | Observed result                                                                                                                                                                                                                                                     | Limitations                                                                          |
+| ------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------ |
+| Token validation and Figma round trip | 10 tests passed                                                                                                                                                                                                                                                     | Keys, references, cycles, dimensions, schema                                         |
+| Figma import                          | `radius.md` 0.625rem → 0.75rem imported; cards render 12px corners in Chrome                                                                                                                                                                                        | Tokens Studio 2.13.2 single-file export, kept at `packages/tokens/figma/tokens.json` |
+| Token contrast                        | 28 pairs passed                                                                                                                                                                                                                                                     | Opaque sRGB pairs; rendered contrast is covered by browser axe                       |
+| Jest/RTL                              | 72 tests in 11 suites passed (0.2.0, 1 Nov 2026)                                                                                                                                                                                                                    | jsdom has no layout; positioning and gestures are browser-checked                    |
+| Date conversion                       | Included above; runs in separate timezone processes                                                                                                                                                                                                                 | Gregorian YYYY-MM-DD only                                                            |
+| Coverage                              | 97.40% stmts, 90.37% branches, 99.32% funcs, 98.40% lines (0.2.0)                                                                                                                                                                                                   | Thresholds in jest.config.cjs                                                        |
+| ESLint / TypeScript                   | Passed                                                                                                                                                                                                                                                              | Source, stories, tests, scripts and demo                                             |
+| UI, demo and Storybook builds         | Passed                                                                                                                                                                                                                                                              | Storybook built from the owner's environment                                         |
+| Browser workflows                     | Passed (`artifacts/browser-check.json`)                                                                                                                                                                                                                             | Headless Chrome; see checks list in the report                                       |
+| Browser axe                           | Passed: workbench, dashboard, gallery, dialogs, drawer, popover, menu; both themes                                                                                                                                                                                  | Menu scan disables only `region` (portalled to body)                                 |
+| Storybook interaction tests           | 13 play-function tests passed in headless Chrome (`npm run test:storybook`, `artifacts/storybook-check.json`)                                                                                                                                                       | Keyboard, focus, selection and date flows for 12 interactive components              |
+| Storybook axe                         | 204/204 stories scanned in Chrome, 0 violations (0.2.0)                                                                                                                                                                                                             | Each story in its default state plus the play-function end state                     |
+| Independent archive consumer          | Passed: install, types, build, browser interaction                                                                                                                                                                                                                  | Separate temp app; no Tailwind or source aliases                                     |
+| Tree-shaking                          | Button-only and DataGrid-only bundles: 0 calendar modules                                                                                                                                                                                                           | Measured in the independent consumer                                                 |
+| Screen reader review                  | Passed 1 Nov 2026: NVDA 2026.3 with Chrome, 18 of 18 dashboard checks ([manual review](manual-review.md))                                                                                                                                                           | Dashboard only: 15 of 44 components; NVDA and Chrome only                            |
+| Chromatic visual baseline             | Baseline build 1 (191 snapshots), updated by reviewed builds since; interaction stories snapshot open overlays. Clock frozen to 2026-10-23 during Chromatic runs so calendars do not change daily. Storybook: https://main--6adb1ea72d119416b1620b45.chromatic.com/ | See regression demonstration below                                                   |
+| Package publication                   | Published 0.1.0 to npm on 1 Nov 2026; installed from the registry into a clean app, which builds and passes the consumer browser check                                                                                                                              | Demo hosting not done; the demo runs locally                                         |
 
 ## Visual regression demonstration (Chromatic)
 
@@ -82,9 +85,9 @@ Intel Core i5-4440 (2013, 4 threads), Windows, Chrome 155.
 
 ### Library size (`npm run pack:check`)
 
-Packed archive: 26,620 bytes. Library JavaScript: 50 modules, 52,762 bytes raw /
-24,368 gzip in total; React, Radix and react-day-picker are external. Library CSS:
-25,760 bytes raw / 5,162 gzip (one complete stylesheet, intentional).
+Measured for 0.2.0 on 1 November 2026. Packed archive: 33,348 bytes. Library JavaScript: 50
+modules, 54,128 bytes raw / 24,898 gzip in total; React, Radix and react-day-picker are
+external. Library CSS: 25,978 bytes raw / 5,220 gzip (one complete stylesheet, intentional).
 
 What a component adds to an app, measured against an app that renders a plain React
 button. The check fails if a budget is exceeded.
@@ -92,14 +95,14 @@ button. The check fails if a budget is exceeded.
 | Import        | Adds (JS, gzip) | Budget | Calendar modules bundled |
 | ------------- | --------------- | ------ | ------------------------ |
 | Button only   | 0.3 KB          | 1 KB   | 0                        |
-| DataGrid only | 2.8 KB          | 5 KB   | 0                        |
+| DataGrid only | 3.0 KB          | 5 KB   | 0                        |
 
 | Consumer bundle (includes React)    | JS raw    | JS gzip   |
 | ----------------------------------- | --------- | --------- |
 | React only (baseline)               | 223,869 B | 69,492 B  |
 | Button only                         | 224,440 B | 69,785 B  |
-| DataGrid only                       | 231,259 B | 72,334 B  |
-| Button, Input, DataGrid, DatePicker | 350,740 B | 108,711 B |
+| DataGrid only                       | 231,756 B | 72,556 B  |
+| Button, Input, DataGrid, DatePicker | 351,260 B | 108,928 B |
 
 Dashboard production build: 474,079 bytes JS and 35,375 bytes CSS raw, including React,
 all overlays and the calendar.
@@ -120,6 +123,31 @@ All values in milliseconds. Even at 10,000 rows on a 2013 CPU, every interaction
 far below the 200 ms "good" responsiveness threshold (INP) and below the 50 ms long-task
 threshold; search is the most expensive because every row is lower-cased and compared.
 Paging keeps the DOM small, so cost grows with data processing, not rendering.
+
+### DataGrid 0.2.0 memoisation
+
+In 0.1.0 every render re-read every row: it rebuilt the row ids, re-ran the search and re-sorted,
+even when the user only ticked a checkbox. 0.2.0 memoises the row ids, the search index and the
+sorted order on their inputs. The search index is built on the first keystroke rather than at
+mount, and it uses `toLowerCase()`, which gives the same result as `toLocaleLowerCase('en')`
+without a locale lookup per call. A unit test fails on the 0.1.0 code: after sorting, ticking a
+row and changing page, 0.1.0 reads all 31 rows and 0.2.0 reads only the 20 it displays.
+
+Both versions measured on 1 November 2026 on the same machine with the same script
+(`npm run perf`): Intel Core i5-1135G7 (2020 laptop, 8 threads), Windows, Chrome 137. Values at
+10,000 rows, median of 7 runs (worst run in brackets), milliseconds. "Refine search" types one
+more character into an existing search, the common case while a user narrows results.
+
+| Version | Mount     | Search      | Refine search | Clear search | Sort number | Sort text | Next page | Select row |
+| ------- | --------- | ----------- | ------------- | ------------ | ----------- | --------- | --------- | ---------- |
+| 0.1.0   | 5.9 (7.1) | 15.7 (18.7) | 16.5 (31.5)   | 3.2 (4.4)    | 5.3 (7.5)   | 6.3 (8.7) | 6.5 (8.7) | 5.6 (6.3)  |
+| 0.2.0   | 4.6 (5.0) | 4.9 (5.3)   | 3.0 (3.2)     | 2.6 (3.2)    | 3.9 (4.9)   | 5.8 (6.8) | 3.6 (4.1) | 1.8 (2.1)  |
+
+At 10,000 rows every action is faster. The largest gains are where 0.1.0 repeated work that had
+not changed: refining a search (5.5 times faster), selecting a row (3.1 times) and paging (1.8
+times). At 100 and 1,000 rows both versions take 1 to 4 ms for every action, within run-to-run
+noise of each other. Both versions were already far below
+the 200 ms responsiveness threshold; the change matters most for larger data and slower devices.
 
 ### Lighthouse 13.5.0 (`npm run perf:lighthouse`)
 

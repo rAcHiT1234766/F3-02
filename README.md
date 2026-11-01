@@ -120,17 +120,17 @@ the library with a `fui:` prefix and no global reset, so host styles are untouch
 
 ## Quality and testing
 
-| Check                       | Result                                                                                                                                                                                                                     |
-| --------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Behaviour tests             | 69 Jest + Testing Library tests; coverage 97.3% statements, 90.0% branches, 98.3% lines                                                                                                                                    |
-| Tokens                      | 10 validation and Figma round-trip tests; 28 colour pairs meet their contrast targets                                                                                                                                      |
-| Browser workflows           | Add, edit, archive and undo; grid search, sort, paging and selection; nested calendar dialog; focus trap and restore; 320px reflow; reduced motion                                                                         |
-| Interaction tests           | 12 Storybook play-function tests (keyboard, focus trap and restore, selection, dates) pass in Chrome                                                                                                                       |
-| Automated accessibility     | axe on all 203 stories in Chrome (0 violations), in Jest, and on the dashboard, gallery and open overlays in both themes                                                                                                   |
-| Visual regression           | Chromatic snapshots of every story, including open dialogs, menus and calendars. A deliberate one-line CSS regression was caught in 57 snapshots, reviewed and denied                                                      |
-| Package                     | Packed archive installed, type-checked, built and exercised in a separate app; Button-only bundle contains no calendar code                                                                                                |
-| Performance                 | Lighthouse 100 / 100 / 100 / 100 on desktop (99 performance on mobile). DataGrid with 10,000 rows updates in under 8 ms (search 18 ms) on a 2013 CPU. Button adds 0.3 KB to an app, DataGrid 2.8 KB, with budgets enforced |
-| Manual screen-reader review | NVDA 2026.3 in Chrome on the employee dashboard: 18 of 18 checks pass, covering forms, dialogs, the calendar, the table, announcements and 400% zoom ([manual review](docs/manual-review.md))                              |
+| Check                       | Result                                                                                                                                                                                                                                                                                                     |
+| --------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Behaviour tests             | 72 Jest + Testing Library tests; coverage 97.4% statements, 90.4% branches, 98.4% lines                                                                                                                                                                                                                    |
+| Tokens                      | 10 validation and Figma round-trip tests; 28 colour pairs meet their contrast targets                                                                                                                                                                                                                      |
+| Browser workflows           | Add, edit, archive and undo; grid search, sort, paging and selection; nested calendar dialog; focus trap and restore; 320px reflow; reduced motion                                                                                                                                                         |
+| Interaction tests           | 13 Storybook play-function tests (keyboard, focus trap and restore, selection and bulk actions, dates) pass in Chrome                                                                                                                                                                                      |
+| Automated accessibility     | axe on all 204 stories in Chrome (0 violations), in Jest, and on the dashboard, gallery and open overlays in both themes                                                                                                                                                                                   |
+| Visual regression           | Chromatic snapshots of every story, including open dialogs, menus and calendars. A deliberate one-line CSS regression was caught in 57 snapshots, reviewed and denied                                                                                                                                      |
+| Package                     | Packed archive installed, type-checked, built and exercised in a separate app; Button-only bundle contains no calendar code                                                                                                                                                                                |
+| Performance                 | Lighthouse 100 / 100 / 100 / 100 on desktop (99 performance on mobile). DataGrid with 10,000 rows updates in under 6 ms, search included (0.2.0, 2020 laptop CPU; [before and after](docs/test-results.md#datagrid-020-memoisation)). Button adds 0.3 KB to an app, DataGrid 3.0 KB, with budgets enforced |
+| Manual screen-reader review | NVDA 2026.3 in Chrome on the employee dashboard: 18 of 18 checks pass, covering forms, dialogs, the calendar, the table, announcements and 400% zoom ([manual review](docs/manual-review.md))                                                                                                              |
 
 ![Chromatic flagging a visual change for review](docs/images/chromatic-review.png)
 
@@ -171,15 +171,15 @@ docs/            architecture, API, decisions, test results, guides
 
 ## Project status
 
-| Area                              | Status                                            |
-| --------------------------------- | ------------------------------------------------- |
-| Components, stories, tests        | Done                                              |
-| Figma tokens and Style Dictionary | Done                                              |
-| Light and dark themes             | Done                                              |
-| Chromatic visual testing          | Done                                              |
-| Manual NVDA review                | Done: 18 of 18 checks pass                        |
-| Registry publication (semver)     | Published: `@rachitp72/foundation-ui@0.1.0` (MIT) |
-| Hosted demo                       | Planned; runs locally today                       |
+| Area                              | Status                                                                                               |
+| --------------------------------- | ---------------------------------------------------------------------------------------------------- |
+| Components, stories, tests        | Done                                                                                                 |
+| Figma tokens and Style Dictionary | Done                                                                                                 |
+| Light and dark themes             | Done                                                                                                 |
+| Chromatic visual testing          | Done                                                                                                 |
+| Manual NVDA review                | Done: 18 of 18 checks pass                                                                           |
+| Registry publication (semver)     | Published: `@rachitp72/foundation-ui@0.1.0` (MIT); 0.2.0 prepared ([release notes](docs/release.md)) |
+| Hosted demo                       | Planned; runs locally today                                                                          |
 
 Full status and next steps: [PROJECT-STATUS.md](PROJECT-STATUS.md). More detail: [progress](docs/progress.md), [architecture](docs/architecture.md),
 [API](docs/api.md), [decisions](docs/decisions.md), [release checklist](docs/release.md).
