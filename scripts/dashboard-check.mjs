@@ -70,6 +70,13 @@ export async function checkDashboard(page, report) {
   assert.equal(await page.$$eval('[role="dialog"]', (nodes) => nodes.length), 2);
   await page.keyboard.press('Escape');
   assert.equal(await page.$$eval('[role="dialog"]', (nodes) => nodes.length), 1);
+  // Focus returns just after the dialog unmounts; wait briefly so a busy machine does not flake.
+  await page
+    .waitForFunction(
+      () => document.activeElement?.getAttribute('aria-label') === 'Open Start date calendar',
+      { timeout: 2000 },
+    )
+    .catch(() => undefined);
   assert.equal(
     await page.evaluate(() => document.activeElement.getAttribute('aria-label')),
     'Open Start date calendar',

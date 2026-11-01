@@ -34,7 +34,13 @@ const server = spawn(
     '4173',
     '--strictPort',
   ],
-  { cwd: path.join(root, 'apps/demo'), windowsHide: true, stdio: 'pipe' },
+  // NO_COLOR: Vite colours the port on some terminals, which breaks the readiness match below.
+  {
+    cwd: path.join(root, 'apps/demo'),
+    windowsHide: true,
+    stdio: 'pipe',
+    env: { ...process.env, NO_COLOR: '1' },
+  },
 );
 let serverLog = '';
 server.stdout.on('data', (chunk) => {
