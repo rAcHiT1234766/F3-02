@@ -55,9 +55,9 @@ const sortState = (header: string) =>
     .find((cell) => cell.textContent?.includes(header))
     ?.getAttribute('aria-sort');
 // "employee 1" matches Employee 1, 10–19, 100–199, … up to the row count.
-const searchMatches = (count: number) =>
+const searchMatches = (count: number, term = 'employee 1') =>
   Array.from({ length: count }, (_, index) => `employee ${index + 1}`).filter((name) =>
-    name.includes('employee 1'),
+    name.includes(term),
   ).length;
 
 async function measure(count: number, repeats: number) {
@@ -65,6 +65,7 @@ async function measure(count: number, repeats: number) {
   const samples: Record<string, number[]> = {
     mount: [],
     search: [],
+    refineSearch: [],
     clearSearch: [],
     sortNumber: [],
     sortText: [],
@@ -91,6 +92,13 @@ async function measure(count: number, repeats: number) {
     check(status().startsWith(`${count} results`), `mount shows ${count} results`);
     samples.search!.push(timed(() => setSearch('employee 1')));
     check(status().startsWith(`${searchMatches(count)} results`), 'search filters rows');
+    await settle();
+    // Typing one more character, the common case while a user narrows a search.
+    samples.refineSearch!.push(timed(() => setSearch('employee 12')));
+    check(
+      status().startsWith(`${searchMatches(count, 'employee 12')} result`),
+      'refined search filters rows',
+    );
     await settle();
     samples.clearSearch!.push(timed(() => setSearch('')));
     check(status().startsWith(`${count} results`), 'clearing search restores rows');

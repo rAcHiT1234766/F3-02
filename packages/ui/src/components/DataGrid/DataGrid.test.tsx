@@ -90,6 +90,73 @@ test('multiple instances keep their search and row labels separate', async () =>
   expect(inputs[0]?.id).not.toBe(inputs[1]?.id);
 });
 
+test('controlled selection reports ids in data order and only changes through selectedIds', async () => {
+  const onSelectionChange = jest.fn();
+  const { rerender } = render(
+    <DataGrid {...props} selectedIds={['row-3', 'gone']} onSelectionChange={onSelectionChange} />,
+  );
+  expect(screen.getByRole('status')).toHaveTextContent('31 results · 1 selected');
+  expect(screen.getByRole('checkbox', { name: 'Select Person 3 (row-3)' })).toBeChecked();
+  await userEvent.click(screen.getByRole('checkbox', { name: 'Select Same name (row-0)' }));
+  // Unknown ids are dropped from the report, and the grid waits for the parent to accept it.
+  expect(onSelectionChange).toHaveBeenLastCalledWith(['row-0', 'row-3']);
+  expect(screen.getByRole('checkbox', { name: 'Select Same name (row-0)' })).not.toBeChecked();
+  rerender(
+    <DataGrid {...props} selectedIds={['row-3', 'row-0']} onSelectionChange={onSelectionChange} />,
+  );
+  expect(screen.getByRole('status')).toHaveTextContent('2 selected');
+  await userEvent.click(screen.getByRole('button', { name: 'Clear selection' }));
+  expect(onSelectionChange).toHaveBeenLastCalledWith([]);
+});
+
+test('uncontrolled selection starts from defaultSelectedIds and reports page selection', async () => {
+  const onSelectionChange = jest.fn();
+  const { rerender } = render(
+    <DataGrid
+      {...props}
+      defaultSelectedIds={['row-20', 'missing']}
+      onSelectionChange={onSelectionChange}
+    />,
+  );
+  expect(screen.getByRole('status')).toHaveTextContent('1 selected');
+  await userEvent.click(screen.getByRole('checkbox', { name: 'Select visible page' }));
+  expect(onSelectionChange).toHaveBeenLastCalledWith([
+    ...Array.from({ length: 10 }, (_, i) => `row-${i}`),
+    'row-20',
+  ]);
+  expect(screen.getByRole('status')).toHaveTextContent('11 selected');
+  // A row that leaves the data is forgotten, so it is not selected again when it returns.
+  rerender(<DataGrid {...props} data={data.slice(1)} />);
+  expect(screen.getByRole('status')).toHaveTextContent('10 selected');
+  rerender(<DataGrid {...props} />);
+  expect(screen.getByRole('checkbox', { name: 'Select Same name (row-0)' })).not.toBeChecked();
+});
+
+test('selecting, paging and searching do not re-read every row', async () => {
+  const value = jest.fn((row: Row) => row.name);
+  const rowsRead = () => new Set(value.mock.calls.map(([row]) => row.id)).size;
+  const { unmount } = render(
+    <DataGrid {...props} columns={[{ id: 'name', header: 'Name', value, sortable: true }]} />,
+  );
+  await userEvent.click(screen.getByRole('button', { name: 'Name' }));
+  value.mockClear();
+  await userEvent.click(screen.getAllByRole('checkbox')[1]!);
+  await userEvent.click(screen.getByRole('button', { name: 'Next' }));
+  // Only the cells shown on pages 1 and 2 are read; the sorted order is reused.
+  expect(rowsRead()).toBe(20);
+  unmount();
+  value.mockClear();
+  render(<DataGrid {...props} columns={[{ id: 'name', header: 'Name', value }]} />);
+  // Mounting does not build the search index: only the 10 displayed rows are read.
+  expect(rowsRead()).toBe(10);
+  await userEvent.type(screen.getByRole('searchbox'), 'P');
+  value.mockClear();
+  await userEvent.type(screen.getByRole('searchbox'), 'erson 2');
+  expect(screen.getByRole('status')).toHaveTextContent('11 results');
+  // The index built on the first keystroke is reused; later keystrokes read only displayed rows.
+  expect(rowsRead()).toBeLessThan(data.length);
+});
+
 test('typed comparison is stable and null stays last in both directions', () => {
   expect(compareGridValues(2, 10, false)).toBeLessThan(0);
   expect(compareGridValues('Name 2', 'Name 10', false)).toBeLessThan(0);
