@@ -1,6 +1,6 @@
 {
   "name": "@rachitp72/foundation-ui",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "Token-driven, accessible React components for internal applications.",
   "keywords": [
     "react",
@@ -14,6 +14,14 @@
   ],
   "author": "rachitp72",
   "homepage": "https://main--6adb1ea72d119416b1620b45.chromatic.com/",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rAcHiT1234766/F3-02.git",
+    "directory": "packages/ui"
+  },
+  "bugs": {
+    "url": "https://github.com/rAcHiT1234766/F3-02/issues"
+  },
   "type": "module",
   "license": "MIT",
   "files": [

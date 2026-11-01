@@ -66,8 +66,9 @@ NVDA screen reader passed all 18 of its checks. Neither is a WCAG certification.
 
 ## Versioning
 
-Follows semantic versioning. Before 1.0, breaking changes increase the minor version and
-compatible fixes increase the patch version.
+Follows semantic versioning. Before 1.0, new features and breaking changes increase the minor
+version and compatible fixes increase the patch version. Each release and any migration steps
+are listed in the [release notes](https://github.com/rAcHiT1234766/F3-02/blob/main/docs/release.md).
 
 ## Licence
 

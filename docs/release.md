@@ -1,30 +1,46 @@
-# Release checklist
+# Releases
 
-Publication is not authorized by the handover. No upload or release has occurred.
+Package: [`@rachitp72/foundation-ui`](https://www.npmjs.com/package/@rachitp72/foundation-ui)
+on npm, MIT licence. Versions follow semantic versioning. Before 1.0, a new feature or a
+breaking change increases the minor version (0.x.0) and a compatible bug fix increases the
+patch version (0.x.y). Every release is listed here with what changed and what apps must do.
 
-- [ ] Establish Node 24 and a successful install; record exact versions in lockfile.
-- [ ] Complete the Button/Input workflow including a real Storybook build.
-- [ ] Complete all 44 inventory rows and required behavior.
-- [ ] Reconcile genuine Figma foundations/export and source provenance.
-- [ ] Run lint, types, Jest coverage, tokens, UI/demo/Storybook production builds.
-- [ ] Run independent archive type/build/browser checks including a complex widget.
-- [ ] Complete real keyboard, contrast and screen-reader review.
-- [ ] Run and review actual Chromatic baselines and changes.
-- [ ] Measure minimal Button, DataGrid and demo bundles, plus table interactions.
-- [ ] Resolve owner scope, package availability, repository URL and license.
-- [ ] Obtain destination-specific publication/deployment authorization.
-- [ ] Publish the exact tested candidate; install the published package independently.
-- [ ] Verify reviewer access to actual demo/docs/Figma/repository/submission links.
+## 0.2.0 (prepared 1 November 2026)
 
-Initial proposed release: 0.1.0. Before 1.0, breaking API changes increment minor;
-compatible bug fixes increment patch. Document each change and migration.
+**Added**
 
-CI is prepared but unexecuted. It requires a real GitHub repository and committed
-lockfile. Chromatic is a separate manually triggered workflow; its token comes
-from a GitHub secret. Missing credentials fail clearly. No automatic baseline
-acceptance is configured. Require reviewed visual checks in branch protection
-once the project exists; CLI success alone is not visual approval.
+- DataGrid controlled selection: `selectedIds` and `onSelectionChange` let the app read and
+  set the selected rows, for example to run a bulk action. `defaultSelectedIds` sets the first
+  selection when the grid manages it. `onSelectionChange` reports every selected id in `data`
+  order, including rows on other pages or hidden by the search.
+- Storybook story "Bulk action on selected rows" with an interaction test.
 
-The independent consumer helper retains its temporary directory for inspection.
-It installs the actual archive, has no Tailwind config or workspace source aliases,
-and records actual file sizes. Browser interaction is a separate recorded check.
+**Changed**
+
+- DataGrid memoises row ids, the search index and the sorted order. Ticking a checkbox,
+  changing page and typing a search no longer re-read every row. See the before-and-after
+  timings in [test results](test-results.md#datagrid-020-memoisation).
+- DataGrid adds 3.0 KB of gzipped JavaScript to an app, up from 2.8 KB (budget 5 KB).
+- Package page: links to the GitHub repository and issue tracker, and the current README.
+
+**Migration:** none. Existing props and behaviour are unchanged. To get the full benefit, pass
+the same `columns` array between renders.
+
+## 0.1.0 (1 November 2026)
+
+First public release: 44 components, light and dark themes from design tokens, one compiled
+stylesheet, TypeScript types, ES modules with one file per component.
+
+## How a release is made
+
+1. Set the version: `npm version <x.y.z> -w @rachitp72/foundation-ui --no-git-tag-version`,
+   and add an entry above.
+2. Run `npm run check`, `npm run test:coverage`, `npm run build:storybook`,
+   `npm run test:storybook`, `npm run test:browser` and `npm run pack:check`. GitHub Actions
+   (`checks.yml`) runs the same checks on every push.
+3. Run Chromatic (`chromatic.yml`, started by hand; the token is a GitHub secret) and review
+   every visual change in the Chromatic web app. A passing upload is not an approval.
+4. `npm publish -w @rachitp72/foundation-ui --dry-run` and compare the file list. Then publish
+   from an interactive terminal, because the npm account uses two-factor authentication.
+5. Install the published version into a clean app and repeat the consumer browser check.
+6. Tag the commit `v<x.y.z>` and push the tag.
