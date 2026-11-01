@@ -1,0 +1,16 @@
+{
+  "name": "@foundation-local/demo",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "vite --configLoader runner --host 127.0.0.1",
+    "build": "vite build --configLoader runner",
+    "preview": "vite preview --configLoader runner --host 127.0.0.1"
+  },
+  "dependencies": {
+    "@rachitp72/foundation-ui": "0.1.0",
+    "react": "19.3.0",
+    "react-dom": "19.3.0"
+  }
+}

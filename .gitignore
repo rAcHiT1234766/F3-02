@@ -1,0 +1,14 @@
+node_modules/
+.cache/
+dist/
+coverage/
+storybook-static/
+*.tgz
+*.tsbuildinfo
+.env*
+!.env.example
+artifacts/
+*.zip
+
+# Personal screenshots
+Screenshot (*).png

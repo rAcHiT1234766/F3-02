@@ -1,0 +1,10 @@
+node_modules
+.cache
+dist
+coverage
+storybook-static
+package-lock.json
+FE-01-Codex-Project-Workflow.md
+artifacts
+# Raw Tokens Studio export from Figma; kept byte-for-byte as provenance.
+packages/tokens/figma/tokens.json

@@ -1,0 +1,26 @@
+import { Meta } from '@storybook/addon-docs/blocks';
+import { TypeScale } from '../blocks';
+
+<Meta title="Foundations/Typography" />
+
+# Typography
+
+One font family with system fallbacks, three sizes in `rem` (so text respects the
+user's browser font size) and a medium weight for labels and emphasis.
+
+<TypeScale sizes={['sm', 'md', 'lg']} />
+
+## Headings: meaning and size are separate
+
+[Heading](?path=/docs/typography-heading--docs) takes a `level` (the `h1`–`h6` element
+that screen readers use to navigate) and an optional visual `size`. Choose the level from
+the page outline and the size from the design, never the other way round:
+
+```tsx
+<Heading level={2} size="sm">
+  Team members
+</Heading>
+```
+
+[Text](?path=/docs/typography-text--docs) covers body copy and captions, with a `muted`
+tone for secondary information.

@@ -1,0 +1,139 @@
+.employee-app {
+  min-height: 100vh;
+  /* Room to scroll the last rows above open toasts. */
+  padding-bottom: var(--fui-toast-inset, 0px);
+  background: var(--fui-color-background);
+  color: var(--fui-color-text);
+  font-family: var(--fui-font-body);
+}
+.employee-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  flex-wrap: wrap;
+  padding: 1.25rem max(1rem, calc((100vw - 78rem) / 2));
+  border-bottom: 1px solid var(--fui-color-border-subtle);
+  background: var(--fui-color-surface);
+}
+.employee-brand {
+  display: flex;
+  gap: 0.75rem;
+  align-items: center;
+  color: var(--fui-color-text);
+  text-decoration: none;
+  font-size: 1.25rem;
+  font-weight: 700;
+  letter-spacing: -0.03em;
+}
+.employee-brand > span {
+  display: grid;
+  place-content: center;
+  width: 2.25rem;
+  height: 2.25rem;
+  border-radius: 0.625rem;
+  background: var(--fui-color-action);
+  color: var(--fui-color-on-action);
+}
+.employee-brand small {
+  font-size: 0.6rem;
+  letter-spacing: 0.15em;
+  color: var(--fui-color-text-muted);
+  margin-left: 0.5rem;
+}
+.appearance {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-size: 0.875rem;
+}
+.appearance select {
+  width: auto;
+}
+.employee-tabs {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  padding: 1.5rem 0 2.5rem;
+}
+.employee-tabs > a {
+  margin-left: auto;
+  font-size: 0.875rem;
+}
+.employee-title {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  margin: 1.5rem 0 2rem;
+}
+.employee-title h1 {
+  font-size: clamp(2rem, 4vw, 3rem);
+  letter-spacing: -0.045em;
+  margin: 0.5rem 0 0.75rem;
+}
+.employee-metric {
+  font-size: 2.5rem;
+  font-weight: 600;
+  letter-spacing: -0.05em;
+  margin: 0.5rem 0;
+  line-height: 1.2;
+}
+.employee-directory {
+  padding: 2rem 0;
+}
+.employee-directory > .fui-stack {
+  margin-bottom: 1.5rem;
+}
+.employee-filters,
+.employee-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+.employee-person {
+  display: flex;
+  gap: 0.75rem;
+  align-items: center;
+  min-width: 14rem;
+}
+.employee-actions {
+  min-width: 10rem;
+}
+.employee-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+.employee-footer {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 2rem 0;
+  margin-top: 2rem;
+  border-top: 1px solid var(--fui-color-border-subtle);
+}
+@media (max-width: 40rem) {
+  .employee-brand small {
+    display: none;
+  }
+  .employee-header {
+    align-items: start;
+  }
+  .employee-title > .fui-portal-anchor {
+    width: 100%;
+  }
+  .employee-filters {
+    width: 100%;
+  }
+  .employee-filters > * {
+    flex: 1;
+    min-width: 8rem;
+  }
+  .employee-tabs > a {
+    margin-left: 0;
+  }
+}

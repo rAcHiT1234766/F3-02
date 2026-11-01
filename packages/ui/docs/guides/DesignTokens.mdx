@@ -1,0 +1,53 @@
+import { Meta } from '@storybook/addon-docs/blocks';
+
+<Meta title="Guides/Design tokens" />
+
+# Design tokens
+
+Design tokens are the named values (colours, spacing, radius and typography) that every
+component is built from. They are defined once, in **Figma**, and flow into code
+automatically, so design and code cannot drift apart.
+
+## From Figma to components
+
+1. **Figma.** Tokens live in the Figma file with the Tokens Studio plugin and are
+   published as Figma Variables in three collections: `primitives`, `light` and `dark`.
+2. **Export.** Tokens Studio exports a single `tokens.json`, saved in the repository at
+   `packages/tokens/figma/tokens.json`.
+3. **Import.** `npm run tokens:import` validates the export (references, types, matching
+   light and dark keys) and prints every value that changed.
+4. **Style Dictionary** turns the tokens into CSS custom properties for each theme.
+5. **Components** use only those custom properties, and the build checks contrast again.
+
+A change made in Figma (`radius.md` from 0.625rem to 0.75rem) was carried through these
+steps and verified in the rendered app.
+
+## Tiers and naming
+
+| Tier      | Example                      | Used by                       |
+| --------- | ---------------------------- | ----------------------------- |
+| Primitive | `palette.teal`, `space.4`    | Semantic tokens and layout    |
+| Semantic  | `color.action`, `color.text` | Components; differs per theme |
+
+A token's path becomes a prefixed, kebab-case CSS variable:
+
+| Token               | CSS                             |
+| ------------------- | ------------------------------- |
+| `color.actionHover` | `var(--fui-color-action-hover)` |
+| `space.4`           | `var(--fui-space-4)`            |
+| `radius.md`         | `var(--fui-radius-md)`          |
+| `font.size.sm`      | `var(--fui-font-size-sm)`       |
+
+## Overriding tokens in an app
+
+Because tokens are CSS custom properties, an app can adjust them for one area without
+touching the library:
+
+```css
+.marketing-banner {
+  --fui-color-action: #5b3cc4;
+}
+```
+
+Keep overrides on semantic tokens and check their contrast; see [Colors](?path=/docs/foundations-colors--docs)
+for the pairs that must stay readable.

@@ -1,0 +1,112 @@
+@layer theme, base, components, utilities;
+@import 'tailwindcss/theme.css' layer(theme) prefix(fui);
+@import 'tailwindcss/utilities.css' layer(utilities) prefix(fui);
+@import '../../tokens/dist/themes.css';
+@import './foundations.css';
+@import './forms.css';
+@import './overlays.css';
+@import './data.css';
+@import 'react-day-picker/style.css' layer(components);
+@import './calendar.css';
+@source "./components";
+
+@layer components {
+  .fui-button,
+  .fui-input {
+    box-sizing: border-box;
+    font: inherit;
+    font-family: var(--fui-font-body);
+    font-size: var(--fui-font-size-sm);
+    line-height: 1.5;
+    border-radius: var(--fui-radius-sm);
+  }
+  .fui-control-sm {
+    min-height: 2rem;
+    padding: var(--fui-space-1) var(--fui-space-3);
+  }
+  .fui-control-md {
+    min-height: 2.75rem;
+    padding: var(--fui-space-2) var(--fui-space-4);
+  }
+  .fui-control-lg {
+    min-height: 3.25rem;
+    padding: var(--fui-space-3) var(--fui-space-5);
+  }
+  .fui-button {
+    @apply fui:inline-flex fui:items-center fui:justify-center fui:gap-2;
+    border: 1px solid transparent;
+    font-weight: var(--fui-font-weight-medium);
+    cursor: pointer;
+    overflow-wrap: anywhere;
+  }
+  .fui-button-primary {
+    background: var(--fui-color-action);
+    color: var(--fui-color-on-action);
+  }
+  .fui-button-primary:hover:not(:disabled) {
+    background: var(--fui-color-action-hover);
+  }
+  .fui-button-primary:active:not(:disabled) {
+    background: var(--fui-color-action-pressed);
+  }
+  .fui-button-secondary {
+    background: var(--fui-color-surface);
+    color: var(--fui-color-text);
+    border-color: var(--fui-color-border);
+  }
+  .fui-button-secondary:hover:not(:disabled) {
+    background: var(--fui-color-surface-raised);
+  }
+  .fui-button-danger {
+    background: var(--fui-color-danger);
+    color: var(--fui-color-on-danger);
+  }
+  .fui-button:disabled,
+  .fui-input:disabled {
+    cursor: not-allowed;
+    background: var(--fui-color-disabled);
+    color: var(--fui-color-on-disabled);
+  }
+  .fui-input {
+    width: 100%;
+    min-width: 0;
+    border: 1px solid var(--fui-color-border);
+    background: var(--fui-color-surface);
+    color: var(--fui-color-text);
+  }
+  .fui-input::placeholder {
+    color: var(--fui-color-text-muted);
+    opacity: 1;
+  }
+  .fui-input[aria-invalid='true'] {
+    border-color: var(--fui-color-danger);
+    border-width: 2px;
+  }
+  .fui-button:focus-visible,
+  .fui-input:focus-visible {
+    outline: 3px solid var(--fui-color-focus);
+    outline-offset: 3px;
+  }
+  .fui-button-spinner {
+    width: 1em;
+    height: 1em;
+    border: 2px solid currentColor;
+    border-inline-end-color: transparent;
+    border-radius: 50%;
+    animation: fui-spin 750ms linear infinite;
+  }
+}
+@keyframes fui-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .fui-button,
+  .fui-input {
+    transition: none;
+  }
+  .fui-button-spinner {
+    animation: none;
+  }
+}

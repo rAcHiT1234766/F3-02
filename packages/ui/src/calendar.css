@@ -1,0 +1,74 @@
+@layer components {
+  .fui-calendar {
+    --rdp-accent-color: var(--fui-color-action);
+    --rdp-accent-background-color: var(--fui-color-surface-raised);
+    --rdp-day_button-width: 2rem;
+    --rdp-day_button-height: 2.25rem;
+    --rdp-day-width: 2rem;
+    --rdp-day-height: 2.25rem;
+    font-family: var(--fui-font-body);
+    color: var(--fui-color-text);
+    max-width: 100%;
+    font-size: var(--fui-font-size-sm);
+  }
+  .fui-calendar button {
+    color: inherit;
+  }
+  .fui-calendar button:focus-visible {
+    outline: 3px solid var(--fui-color-focus);
+    outline-offset: -3px;
+  }
+  .fui-calendar .rdp-selected .rdp-day_button {
+    background: var(--fui-color-action);
+    color: var(--fui-color-on-action);
+  }
+  .fui-date-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--fui-space-2);
+  }
+  .fui-date-row > input {
+    flex: 1;
+    min-width: 9rem;
+  }
+  .fui-combobox {
+    position: relative;
+  }
+  .fui-combobox-popup {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    z-index: 10;
+    background: var(--fui-color-surface);
+    border: 1px solid var(--fui-color-border);
+    border-radius: var(--fui-radius-sm);
+    max-height: 16rem;
+    overflow-y: auto;
+    box-shadow: 0 6px 24px rgb(0 0 0 / 15%);
+  }
+  .fui-combobox-popup ul {
+    list-style: none;
+    padding: var(--fui-space-1);
+    margin: 0;
+  }
+  .fui-combobox-popup li {
+    padding: var(--fui-space-3);
+    cursor: pointer;
+  }
+  .fui-combobox-popup li[data-active] {
+    outline: 2px solid var(--fui-color-focus);
+    outline-offset: -2px;
+    background: var(--fui-color-surface-raised);
+  }
+  .fui-combobox-popup li[aria-selected='true'] {
+    font-weight: var(--fui-font-weight-medium);
+  }
+  .fui-combobox-popup li[aria-disabled='true'] {
+    color: var(--fui-color-text-muted);
+    cursor: not-allowed;
+  }
+  .fui-combobox-popup p {
+    padding: var(--fui-space-3);
+  }
+}

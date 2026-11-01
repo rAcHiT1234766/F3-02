@@ -1,0 +1,25 @@
+{
+  "color": {
+    "background": { "value": "#101c24", "type": "color" },
+    "surface": { "value": "#182932", "type": "color" },
+    "surfaceRaised": { "value": "#233b43", "type": "color" },
+    "text": { "value": "#f1f7f5", "type": "color" },
+    "textMuted": { "value": "#b7c9c9", "type": "color" },
+    "border": { "value": "#839b9f", "type": "color" },
+    "borderSubtle": { "value": "#344b54", "type": "color" },
+    "action": { "value": "{palette.mint}", "type": "color" },
+    "actionHover": { "value": "#a3efd7", "type": "color" },
+    "actionPressed": { "value": "#63c8a8", "type": "color" },
+    "onAction": { "value": "#102f29", "type": "color" },
+    "danger": { "value": "#ffa5af", "type": "color" },
+    "onDanger": { "value": "#43131b", "type": "color" },
+    "dangerSurface": { "value": "#402730", "type": "color" },
+    "success": { "value": "#93e9bf", "type": "color" },
+    "successSurface": { "value": "#183d32", "type": "color" },
+    "warning": { "value": "#f8d480", "type": "color" },
+    "warningSurface": { "value": "#43391f", "type": "color" },
+    "focus": { "value": "#7ad6ff", "type": "color" },
+    "disabled": { "value": "#34474c", "type": "color" },
+    "onDisabled": { "value": "#afc0bf", "type": "color" }
+  }
+}

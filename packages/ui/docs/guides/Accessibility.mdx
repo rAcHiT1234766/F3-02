@@ -1,0 +1,71 @@
+import { Meta } from '@storybook/addon-docs/blocks';
+
+<Meta title="Guides/Accessibility" />
+
+# Accessibility
+
+Foundation UI targets **WCAG 2.2 level AA**. Accessibility is built into each component
+rather than left to the app: if you use the components as documented, labels, keyboard
+support, focus handling and announcements come with them.
+
+## What every component does
+
+- **Real elements.** Buttons are `button`, fields are `input`/`select`/`textarea`, tables
+  are `table`. Browsers and assistive technology already understand them.
+- **Names and descriptions.** [FormField](?path=/docs/forms-formfield--docs) wires the
+  label, help text and error message to the control (`aria-describedby`, `aria-invalid`).
+  Icon-only buttons require a `label`.
+- **Visible focus.** Every interactive element shows a focus ring in the `focus` colour,
+  with at least 3:1 contrast in both themes.
+- **Errors that are announced.** Validation messages are linked to their field and the
+  field is marked invalid. The employee form in the demo shows the recommended pattern:
+  on submit, focus moves to the first invalid field.
+- **Status messages.** Changes such as "12 results · 2 selected" in DataGrid and toast
+  notifications are announced without moving focus.
+- **Target size.** Buttons and form controls meet the WCAG 2.2 minimum of 24 × 24 CSS
+  pixels; checkboxes and radios include their label in the clickable area. Standalone
+  text links such as breadcrumbs are about 20px tall and rely on WCAG's spacing
+  exception (no other target within 24px).
+- **Motion.** With `prefers-reduced-motion`, spinners and skeletons stop animating and
+  button and input transitions are removed.
+
+## Keyboard reference
+
+| Component                | Keys                                                                                                      |
+| ------------------------ | --------------------------------------------------------------------------------------------------------- |
+| Button, Link, IconButton | **Enter** activates; **Space** activates buttons                                                          |
+| Checkbox, Switch         | **Space** toggles                                                                                         |
+| RadioGroup               | **Arrow keys** move between options and select                                                            |
+| Select                   | Native: **Arrow keys** change the value, **Alt + Down** opens the list                                    |
+| Slider                   | **Arrow keys** step, **Page Up/Down** larger steps, **Home/End** min and max                              |
+| Tabs                     | **Left/Right** move between tabs and show the panel, **Home/End** first and last                          |
+| Accordion                | **Enter/Space** expands a section, **Up/Down** move between headers, **Home/End** first and last          |
+| DropdownMenu             | **Enter/Space/Down** open, **Arrow keys** move, typing jumps to an item, **Esc** closes and returns focus |
+| Modal, Drawer            | Focus moves into the dialog and **Tab** stays inside; **Esc** closes and focus returns to the trigger     |
+| AlertDialog              | Focus starts on **Cancel**; **Esc** cancels; clicking outside never confirms                              |
+| Popover                  | **Esc** closes; focus returns to the trigger                                                              |
+| Tooltip                  | Appears on hover and on keyboard focus; **Esc** hides it                                                  |
+| Toast                    | **F8** moves focus to the notifications so actions such as Undo can be reached                            |
+| Combobox                 | Type to filter, **Up/Down** move through options, **Enter** selects, **Esc** closes                       |
+| Calendar                 | **Arrow keys** day/week, **Page Up/Down** month (**Shift** for year), **Home/End** week start/end         |
+| DatePicker               | Type `YYYY-MM-DD` or open the calendar dialog; impossible dates such as 31 February are rejected          |
+| DataGrid                 | Column headers are sort buttons that announce their direction; each row checkbox is named after the row   |
+| Pagination               | Page buttons announce their number; the current page is marked as current                                 |
+
+## How it is tested
+
+| Layer                   | What it checks                                                                                                                                 |
+| ----------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------- |
+| Unit tests (Jest + axe) | Roles, names, focus movement, keyboard behaviour and axe rules for each composition                                                            |
+| Storybook a11y panel    | Every story is scanned with axe in a real browser by `npm run test:storybook`; open the **Accessibility** tab below a story to see the results |
+| Interaction tests       | Stories named **Keyboard interaction** run a script that uses the keyboard like a person would; watch it in the **Interactions** tab           |
+| Browser tests (Chrome)  | Real-browser axe scans of the dashboard, gallery and open overlays in both themes, 320px reflow                                                |
+| Token contrast          | Text, border and focus pairs are checked against WCAG ratios on every build                                                                    |
+| Manual review (NVDA)    | A person works through the dashboard with a screen reader; checklist ready, review in progress                                                 |
+
+## Known limits
+
+- Automated tools find many problems but not all of them; passing axe is not a WCAG
+  certification. The manual screen-reader review is the final check.
+- Content is English only and right-to-left layouts have not been verified.
+- Disabled controls are exempt from contrast requirements in WCAG and are not claimed to meet them.

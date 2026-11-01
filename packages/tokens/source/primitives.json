@@ -1,0 +1,32 @@
+{
+  "palette": {
+    "white": { "value": "#ffffff", "type": "color" },
+    "ink": { "value": "#172b3a", "type": "color" },
+    "teal": { "value": "#08695e", "type": "color" },
+    "mint": { "value": "#7ee2c2", "type": "color" }
+  },
+  "space": {
+    "1": { "value": "0.25rem", "type": "dimension" },
+    "2": { "value": "0.5rem", "type": "dimension" },
+    "3": { "value": "0.75rem", "type": "dimension" },
+    "4": { "value": "1rem", "type": "dimension" },
+    "5": { "value": "1.5rem", "type": "dimension" },
+    "6": { "value": "2rem", "type": "dimension" },
+    "7": { "value": "3rem", "type": "dimension" },
+    "8": { "value": "4rem", "type": "dimension" }
+  },
+  "radius": {
+    "sm": { "value": "0.375rem", "type": "dimension" },
+    "md": { "value": "0.75rem", "type": "dimension" },
+    "lg": { "value": "1rem", "type": "dimension" }
+  },
+  "font": {
+    "body": { "value": "Inter, Segoe UI, system-ui, sans-serif", "type": "fontFamily" },
+    "size": {
+      "sm": { "value": "0.875rem", "type": "dimension" },
+      "md": { "value": "1rem", "type": "dimension" },
+      "lg": { "value": "1.25rem", "type": "dimension" }
+    },
+    "weight": { "medium": { "value": 600, "type": "fontWeight" } }
+  }
+}

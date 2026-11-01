@@ -1,0 +1,29 @@
+import { Meta } from '@storybook/addon-docs/blocks';
+
+<Meta title="Guides/Versioning and releases" />
+
+# Versioning and releases
+
+Foundation UI uses [semantic versioning](https://semver.org): `MAJOR.MINOR.PATCH`.
+
+| Change                                             | Before 1.0        | From 1.0 |
+| -------------------------------------------------- | ----------------- | -------- |
+| Breaking change to a prop, export or behaviour     | minor (0.**2**.0) | major    |
+| New component or new optional prop                 | minor             | minor    |
+| Bug fix, accessibility fix, token value adjustment | patch             | patch    |
+
+Every release lists its changes and, for breaking changes, how to migrate.
+
+## Compatibility
+
+| Requirement | Version                                                             |
+| ----------- | ------------------------------------------------------------------- |
+| React       | 19 (peer dependency `react`, `react-dom`)                           |
+| Module      | ES modules with TypeScript declarations                             |
+| Styles      | One compiled stylesheet, `styles.css`                               |
+| Browsers    | Tested in current Chrome; other evergreen browsers not yet verified |
+
+## Status
+
+The current version is **0.1.0**. It has been packed and verified in a separate
+application but not yet published to a registry.

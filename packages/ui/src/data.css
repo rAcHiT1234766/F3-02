@@ -1,0 +1,136 @@
+@layer components {
+  .fui-breadcrumbs,
+  .fui-data-grid,
+  .fui-pagination {
+    font: inherit;
+    font-family: var(--fui-font-body);
+    color: var(--fui-color-text);
+  }
+  .fui-breadcrumbs ol,
+  .fui-breadcrumbs li {
+    display: flex;
+    align-items: center;
+    gap: var(--fui-space-3);
+    flex-wrap: wrap;
+    padding: 0;
+    margin: 0;
+    list-style: none;
+  }
+  .fui-pagination {
+    display: flex;
+    gap: var(--fui-space-2);
+    flex-wrap: wrap;
+    margin-top: var(--fui-space-4);
+  }
+  .fui-alert,
+  .fui-toast {
+    font-family: var(--fui-font-body);
+    font-size: var(--fui-font-size-sm);
+    line-height: 1.5;
+    padding: var(--fui-space-4);
+    border: 1px solid var(--fui-color-border);
+    border-radius: var(--fui-radius-sm);
+    overflow-wrap: anywhere;
+  }
+  .fui-alert-neutral {
+    background: var(--fui-color-surface);
+    color: var(--fui-color-text);
+  }
+  .fui-alert-success {
+    background: var(--fui-color-success-surface);
+    color: var(--fui-color-success);
+  }
+  .fui-alert-warning {
+    background: var(--fui-color-warning-surface);
+    color: var(--fui-color-warning);
+  }
+  .fui-alert-danger {
+    background: var(--fui-color-danger-surface);
+    color: var(--fui-color-danger);
+  }
+  /* ToastProvider sets --fui-toast-inset while toasts are open, so focus and
+     scrolling keep content clear of them (WCAG 2.4.11, technique C43). */
+  :root {
+    scroll-padding-bottom: var(--fui-toast-inset, 0px);
+  }
+  .fui-toast-viewport {
+    position: fixed;
+    bottom: var(--fui-space-4);
+    right: var(--fui-space-4);
+    width: min(24rem, calc(100vw - 2rem));
+    max-height: calc(100dvh - 2rem);
+    overflow-y: auto;
+    z-index: 130;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: var(--fui-space-3);
+    outline-offset: 3px;
+  }
+  .fui-toast {
+    box-sizing: border-box;
+  }
+  .fui-toast-title {
+    font-weight: var(--fui-font-weight-medium);
+  }
+  .fui-toast-actions {
+    display: flex;
+    gap: var(--fui-space-2);
+    justify-content: flex-end;
+    margin-top: var(--fui-space-2);
+  }
+  .fui-table-scroll {
+    overflow-x: auto;
+    max-width: 100%;
+    border: 1px solid var(--fui-color-border-subtle);
+    border-radius: var(--fui-radius-sm);
+    margin-top: var(--fui-space-3);
+  }
+  .fui-table-scroll:focus-visible {
+    outline: 3px solid var(--fui-color-focus);
+    outline-offset: 2px;
+  }
+  .fui-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-family: var(--fui-font-body);
+    font-size: var(--fui-font-size-sm);
+    color: var(--fui-color-text);
+    background: var(--fui-color-surface);
+  }
+  .fui-table caption {
+    text-align: left;
+    padding: var(--fui-space-4);
+    font-weight: var(--fui-font-weight-medium);
+  }
+  .fui-table th,
+  .fui-table td {
+    text-align: left;
+    padding: var(--fui-space-3) var(--fui-space-4);
+    border-top: 1px solid var(--fui-color-border-subtle);
+  }
+  .fui-table thead {
+    background: var(--fui-color-surface-raised);
+  }
+  .fui-table td {
+    min-width: 7rem;
+  }
+  /* Selection column: as narrow as its checkbox. */
+  .fui-table .fui-grid-select {
+    min-width: 0;
+    width: 1px;
+    padding-inline: var(--fui-space-2);
+  }
+  .fui-grid-toolbar {
+    display: flex;
+    gap: var(--fui-space-4);
+    flex-wrap: wrap;
+    align-items: end;
+  }
+  .fui-grid-toolbar > :first-child {
+    flex: 1;
+    min-width: min(100%, 15rem);
+  }
+}

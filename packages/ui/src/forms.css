@@ -1,0 +1,80 @@
+@layer components {
+  .fui-field,
+  .fui-fieldset,
+  .fui-choice {
+    font-family: var(--fui-font-body);
+    color: var(--fui-color-text);
+    font-size: var(--fui-font-size-sm);
+    line-height: 1.5;
+  }
+  .fui-field {
+    display: flex;
+    flex-direction: column;
+    gap: var(--fui-space-2);
+    min-width: 0;
+  }
+  .fui-field > label,
+  .fui-fieldset > legend {
+    font-weight: var(--fui-font-weight-medium);
+  }
+  .fui-fieldset {
+    border: 1px solid var(--fui-color-border);
+    border-radius: var(--fui-radius-sm);
+    min-width: 0;
+    margin: 0;
+    padding: var(--fui-space-4);
+  }
+  .fui-help,
+  .fui-error {
+    margin: 0;
+    font-size: var(--fui-font-size-sm);
+  }
+  .fui-help {
+    color: var(--fui-color-text-muted);
+  }
+  .fui-error {
+    color: var(--fui-color-danger);
+  }
+  .fui-choice {
+    display: flex;
+    align-items: center;
+    gap: var(--fui-space-2);
+    min-height: 2.75rem;
+    cursor: pointer;
+  }
+  /* Hidden label: keep a 44px square target around the box. */
+  .fui-choice-compact {
+    position: relative;
+    min-width: 2.75rem;
+    justify-content: center;
+  }
+  .fui-choice input {
+    accent-color: var(--fui-color-action);
+    width: 1.25rem;
+    height: 1.25rem;
+    flex-shrink: 0;
+    margin: 0;
+  }
+  .fui-choice input:focus-visible,
+  .fui-slider:focus-visible {
+    outline: 3px solid var(--fui-color-focus);
+    outline-offset: 3px;
+  }
+  .fui-choice:has(:disabled) {
+    cursor: not-allowed;
+  }
+  .fui-search {
+    display: flex;
+    gap: var(--fui-space-2);
+    min-width: 0;
+  }
+  .fui-search input::-webkit-search-cancel-button {
+    display: none;
+  }
+  .fui-slider {
+    accent-color: var(--fui-color-action);
+    width: 100%;
+    min-height: 2.75rem;
+    margin: 0;
+  }
+}

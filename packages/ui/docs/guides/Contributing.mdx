@@ -1,0 +1,36 @@
+import { Meta } from '@storybook/addon-docs/blocks';
+
+<Meta title="Guides/Contributing" />
+
+# Contributing
+
+Every component follows the same path from idea to release. A component is done when
+all of these are true, not when it first renders.
+
+## Adding or changing a component
+
+1. **Contract.** Write the props interface in `src/components/Name/Name.tsx` with a
+   comment on each prop; these comments become the props table on the component's
+   docs page. Extend the native element's props and forward `ref` where it makes sense.
+2. **Behaviour.** Prefer native elements. For complex patterns (dialogs, menus, tabs)
+   build on the existing Radix primitives rather than re-implementing focus handling.
+3. **Styles.** Use only `--fui-*` token variables, so both themes work automatically.
+4. **Stories.** Add `Name.stories.tsx` with the `autodocs` tag, a component description, a `Keyboard interaction` story with a `play` function for interactive components,
+   the main states, and a dark and a narrow example.
+5. **Tests.** Add behaviour tests with Testing Library (keyboard, names, states) and an
+   axe check for the composition.
+6. **Export.** Export the component and its props type from `src/index.ts`, and update
+   `docs/component-inventory.md`.
+
+## Checks before merging
+
+| Command                  | Checks                                                      |
+| ------------------------ | ----------------------------------------------------------- |
+| `npm run check`          | Lint, types, token and contrast tests, Jest, builds         |
+| `npm run test:browser`   | Real-browser workflows and axe scans in both themes         |
+| `npm run test:storybook` | Every story's interaction test and axe scan in Chrome       |
+| `npm run pack:check`     | The packed library installs and works in a separate app     |
+| `npm run chromatic`      | Visual changes are captured for review against the baseline |
+
+Visual changes are never accepted automatically: someone reviews each Chromatic diff
+and accepts it only if the change was intended.

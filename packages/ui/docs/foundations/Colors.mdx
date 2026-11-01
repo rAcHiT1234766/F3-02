@@ -1,0 +1,79 @@
+import { Meta } from '@storybook/addon-docs/blocks';
+import { ColorSwatches, ContrastTable, PaletteSwatches } from '../blocks';
+
+<Meta title="Foundations/Colors" />
+
+# Colors
+
+Colours come in two tiers. **Palette** tokens are raw brand values. **Semantic** tokens
+describe a job (`action`, `text`, `danger`) and have a light and a dark value; components
+only ever use semantic tokens, which is what makes theming work. Every value below is read
+live from the generated CSS, so it always matches the Figma export.
+
+In CSS each token is a custom property: `color.actionHover` becomes
+`var(--fui-color-action-hover)`.
+
+## Palette
+
+<PaletteSwatches names={['white', 'ink', 'teal', 'mint']} />
+
+## Surfaces and borders
+
+Page background, cards and raised areas, plus the two border strengths.
+
+<ColorSwatches names={['background', 'surface', 'surfaceRaised', 'border', 'borderSubtle']} />
+
+## Text
+
+<ColorSwatches names={['text', 'textMuted']} />
+
+## Action and focus
+
+Primary actions, their hover and pressed states, the text on top of them, and the focus ring.
+
+<ColorSwatches names={['action', 'actionHover', 'actionPressed', 'onAction', 'focus']} />
+
+## Feedback
+
+Status colours always come with text or an icon, so meaning never relies on colour alone.
+
+<ColorSwatches
+  names={[
+    'danger',
+    'onDanger',
+    'dangerSurface',
+    'success',
+    'successSurface',
+    'warning',
+    'warningSurface',
+  ]}
+/>
+
+## Disabled
+
+<ColorSwatches names={['disabled', 'onDisabled']} />
+
+## Contrast
+
+WCAG 2.2 AA asks for 4.5:1 for normal text and 3:1 for borders and focus indicators.
+These ratios are computed live from the tokens; the same pairs are checked on every
+build by `npm run test:contrast`, so a Figma change that breaks contrast fails the build.
+
+<ContrastTable
+  pairs={[
+    ['text', 'background', 4.5],
+    ['text', 'surface', 4.5],
+    ['textMuted', 'background', 4.5],
+    ['textMuted', 'surface', 4.5],
+    ['onAction', 'action', 4.5],
+    ['onAction', 'actionHover', 4.5],
+    ['onAction', 'actionPressed', 4.5],
+    ['onDanger', 'danger', 4.5],
+    ['danger', 'surface', 4.5],
+    ['success', 'successSurface', 4.5],
+    ['warning', 'warningSurface', 4.5],
+    ['border', 'surface', 3],
+    ['focus', 'surface', 3],
+    ['focus', 'background', 3],
+  ]}
+/>

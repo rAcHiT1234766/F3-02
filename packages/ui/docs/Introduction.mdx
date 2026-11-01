@@ -1,0 +1,84 @@
+import { Meta } from '@storybook/addon-docs/blocks';
+import { Badge, Button, Input, Switch } from '../src';
+import { ThemeColumns } from './blocks';
+
+<Meta title="Introduction" />
+
+# Foundation UI
+
+An accessible, token-driven React component library: 44 components, light and dark
+themes generated from Figma, and one compiled stylesheet with no setup for consumers.
+
+<ThemeColumns>
+  {() => (
+    <div style={{ display: 'flex', flexWrap: 'wrap', alignItems: 'center', gap: 12 }}>
+      <Button>Save changes</Button>
+      <Button variant="secondary">Cancel</Button>
+      <Badge tone="success">Active</Badge>
+      <Switch label="Email notifications" defaultChecked />
+      <Input aria-label="Search employees" placeholder="Search employees" />
+    </div>
+  )}
+</ThemeColumns>
+
+## Get started
+
+Import components and the stylesheet once, then set a theme on any container.
+
+```tsx
+import { Button, FormField, Input } from '@rachitp72/foundation-ui';
+import '@rachitp72/foundation-ui/styles.css';
+
+export function Profile() {
+  return (
+    <form data-ui-theme="light">
+      <FormField id="name" label="Full name" required>
+        {(props) => <Input {...props} name="name" />}
+      </FormField>
+      <Button type="submit">Save</Button>
+    </form>
+  );
+}
+```
+
+React 19 is the only peer dependency. Consumers don't need Tailwind, Style Dictionary
+or any build configuration.
+
+## Principles
+
+- **Accessible by default.** Labels, error messages, focus management and keyboard
+  support are built in, targeting WCAG 2.2 AA. See [Accessibility](?path=/docs/guides-accessibility--docs).
+- **Native first.** Components render real `button`, `input`, `select` and `table`
+  elements and pass native props and refs through.
+- **Token-driven.** Every colour, space, radius and font size is a design token
+  defined in Figma. See [Design tokens](?path=/docs/guides-design-tokens--docs).
+- **Typed and composable.** Strict TypeScript APIs, controlled or uncontrolled inputs,
+  and small pieces that compose (FormField + Input, DataGrid built from Table, Checkbox
+  and Pagination).
+- **No side effects on the host.** Styles are prefixed and ship without a global reset,
+  and each component is its own module, so unused components are not bundled.
+
+## Theming
+
+Set `data-ui-theme="light"` or `"dark"` on any element; themes can be nested, and
+dialogs, menus and tooltips follow the theme of the element that opened them. Use the
+**paintbrush** button in the toolbar to switch every story between themes.
+
+## Components
+
+| Group          | Components                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
+| -------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| Actions        | [Button](?path=/docs/actions-button--docs), [IconButton](?path=/docs/actions-iconbutton--docs), [Link](?path=/docs/actions-link--docs)                                                                                                                                                                                                                                                                                                                                                                             |
+| Typography     | [Heading](?path=/docs/typography-heading--docs), [Text](?path=/docs/typography-text--docs), [VisuallyHidden](?path=/docs/typography-visuallyhidden--docs)                                                                                                                                                                                                                                                                                                                                                          |
+| Layout         | [Box](?path=/docs/layout-box--docs), [Stack](?path=/docs/layout-stack--docs), [Grid](?path=/docs/layout-grid--docs), [Container](?path=/docs/layout-container--docs), [Card](?path=/docs/layout-card--docs), [Separator](?path=/docs/layout-separator--docs)                                                                                                                                                                                                                                                       |
+| Forms          | [Input](?path=/docs/forms-input--docs), [Textarea](?path=/docs/forms-textarea--docs), [Checkbox](?path=/docs/forms-checkbox--docs), [RadioGroup](?path=/docs/forms-radiogroup--docs), [Switch](?path=/docs/forms-switch--docs), [Select](?path=/docs/forms-select--docs), [FormField](?path=/docs/forms-formfield--docs), [Fieldset](?path=/docs/forms-fieldset--docs), [SearchInput](?path=/docs/forms-searchinput--docs), [Slider](?path=/docs/forms-slider--docs), [Combobox](?path=/docs/forms-combobox--docs) |
+| Navigation     | [Tabs](?path=/docs/navigation-tabs--docs), [Accordion](?path=/docs/navigation-accordion--docs), [Breadcrumbs](?path=/docs/navigation-breadcrumbs--docs), [Pagination](?path=/docs/navigation-pagination--docs), [DropdownMenu](?path=/docs/navigation-dropdownmenu--docs)                                                                                                                                                                                                                                          |
+| Overlays       | [Modal](?path=/docs/overlays-modal--docs), [AlertDialog](?path=/docs/overlays-alertdialog--docs), [Drawer](?path=/docs/overlays-drawer--docs), [Popover](?path=/docs/overlays-popover--docs), [Tooltip](?path=/docs/overlays-tooltip--docs)                                                                                                                                                                                                                                                                        |
+| Feedback       | [Alert](?path=/docs/feedback-alert--docs), [Toast](?path=/docs/feedback-toast--docs), [Badge](?path=/docs/feedback-badge--docs), [Avatar](?path=/docs/feedback-avatar--docs), [Progress](?path=/docs/feedback-progress--docs), [Spinner](?path=/docs/feedback-spinner--docs), [Skeleton](?path=/docs/feedback-skeleton--docs)                                                                                                                                                                                      |
+| Data and dates | [Table](?path=/docs/data-table--docs), [DataGrid](?path=/docs/data-datagrid--docs), [Calendar](?path=/docs/dates-calendar--docs), [DatePicker](?path=/docs/dates-datepicker--docs)                                                                                                                                                                                                                                                                                                                                 |
+
+## Foundations
+
+- [Colors](?path=/docs/foundations-colors--docs): semantic colours, the palette and live contrast checks.
+- [Spacing and radius](?path=/docs/foundations-spacing-and-radius--docs): the spacing scale and corner radii.
+- [Typography](?path=/docs/foundations-typography--docs): font family, sizes and weight.
