@@ -38,8 +38,9 @@ stylesheet, TypeScript types, ES modules with one file per component.
 2. Run `npm run check`, `npm run test:coverage`, `npm run build:storybook`,
    `npm run test:storybook`, `npm run test:browser` and `npm run pack:check`. GitHub Actions
    (`checks.yml`) runs the same checks on every push.
-3. Run Chromatic (`chromatic.yml`, started by hand; the token is a GitHub secret) and review
-   every visual change in the Chromatic web app. A passing upload is not an approval.
+3. Run Chromatic (`chromatic.yml`, started by hand; the token is the repository secret
+   `CHROMATIC_PROJECT_TOKEN`) and review every visual change in the Chromatic web app. The run
+   is marked failed while changes are waiting for review, and a passing upload is not an approval.
 4. `npm publish -w @rachitp72/foundation-ui --dry-run` and compare the file list. Then publish
    from an interactive terminal, because the npm account uses two-factor authentication.
 5. Install the published version into a clean app and repeat the consumer browser check.

@@ -67,6 +67,23 @@ build is the current baseline.
   pause it and repeated captures differ. This is expected behaviour, not a regression, but it
   means that story has no visual baseline.
 
+## Chromatic build 6 review (0.2.0)
+
+Build 6 (commit `c0d9a4f` on `main`, listed in Chromatic under its earlier ID `2ee136e`; 204 stories) was the first upload from GitHub Actions
+(`chromatic.yml`, run 41460890293). It reported 8 changes. The owner reviewed them on
+2 November 2026: **8 accepted, 0 denied, 0 unreviewed**, and the build is the current baseline.
+
+- **1 new story, accepted:** DataGrid "Bulk action on selected rows". The snapshot shows the
+  end of its interaction test: two rows removed, "30 results · 0 selected", button disabled.
+- **7 changed DataGrid stories, accepted:** their baseline was still build 1 (23 October),
+  when the row and select-page checkbox labels were visible text. Since 24 October the labels
+  have been visually hidden (`hideLabel`) but kept for screen readers, which NVDA confirmed.
+  The diff shows only that text removed and the columns moved left. 0.2.0 did not change
+  the DataGrid's appearance.
+
+The workflow run is marked failed whenever Chromatic finds changes (exit code 1). This is
+deliberate: the run stays red until someone reviews the changes in Chromatic.
+
 ## Reproduction
 
 ```powershell

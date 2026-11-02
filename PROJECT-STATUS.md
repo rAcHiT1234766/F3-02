@@ -53,7 +53,10 @@ Links: [GitHub](https://github.com/rAcHiT1234766/F3-02) · [Live Storybook](http
    interaction stories and 3 Tooltip stories with a corrected icon). The 16th was
    Progress/Indeterminate, auto-ignored by Chromatic as unstable because the browser animates
    a value-less `<progress>` bar itself; not a regression
-   ([details](docs/test-results.md#chromatic-build-5-review)).
+   ([details](docs/test-results.md#chromatic-build-5-review)). **Build 6** (0.2.0, the first
+   upload from GitHub Actions) was reviewed and accepted 2 Nov 2026: the new Bulk action story
+   and 7 DataGrid stories whose hidden checkbox labels had not been accepted since build 1
+   ([details](docs/test-results.md#chromatic-build-6-review-020)).
 2. ✅ **NVDA screen-reader review:** done 1 Nov 2026. 18 of 18 checks pass with no defects ([docs/manual-review.md](docs/manual-review.md)).
 3. ✅ **npm publication:** done 1 Nov 2026. `@rachitp72/foundation-ui@0.1.0` is live; 0.2.0 followed the same day (DataGrid controlled selection and faster updates, [release notes](docs/release.md)). A clean install of each from npm builds and passes the browser check.
 4. ✅ **GitHub:** pushed 1 Nov 2026 to [rAcHiT1234766/F3-02](https://github.com/rAcHiT1234766/F3-02); CI passes.
