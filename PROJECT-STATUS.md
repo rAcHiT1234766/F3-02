@@ -1,13 +1,14 @@
 # Project status
 
-Last updated: 1 November 2026 · Deadline: 20 November 2026
+Last updated: 12 November 2026 · Deadline: 20 November 2026
 
 **Summary:** the build is complete, tested, published to npm and reviewed with a real
-screen reader, the latest Chromatic build is reviewed and accepted, and the code is on GitHub
-with passing CI. What remains is submission material that needs the project owner: the demo
-recording, the reflection and rehearsing the presentation.
+screen reader, the latest Chromatic build is reviewed and accepted, the code is on GitHub
+with passing CI, and the demo is live on GitHub Pages. The presentation is recorded as a
+9:10 video. What remains is the submission folder: uploading the video and sharing links a
+reviewer can open.
 
-Links: [GitHub](https://github.com/rAcHiT1234766/F3-02) · [Live Storybook](https://main--6adb1ea72d119416b1620b45.chromatic.com/) · [npm package](https://www.npmjs.com/package/@rachitp72/foundation-ui) ·
+Links: [GitHub](https://github.com/rAcHiT1234766/F3-02) · [Live demo](https://rachit1234766.github.io/F3-02/) · [Live Storybook](https://main--6adb1ea72d119416b1620b45.chromatic.com/) · [npm package](https://www.npmjs.com/package/@rachitp72/foundation-ui) ·
 [Figma tokens file](https://www.figma.com/design/SP7lRRZBFGGODBBi8uLCDk/I01) ·
 [Test results](docs/test-results.md) · [Component inventory](docs/component-inventory.md)
 
@@ -25,14 +26,14 @@ Links: [GitHub](https://github.com/rAcHiT1234766/F3-02) · [Live Storybook](http
 
 ## Submission deliverables
 
-| Deliverable                                     | Status                                                                                                                                                                                  |
-| ----------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Working demo (deployed or screen-recorded)      | ⚠️ Runs locally (`npm run dev:demo`); a screen recording is still needed                                                                                                                |
-| GitHub repository: clean commits, README, setup | ✅ Public: [rAcHiT1234766/F3-02](https://github.com/rAcHiT1234766/F3-02); CI passed on the first push. History restarts at 1 Nov 2026 (earlier history was lost)                        |
-| Architecture diagram and API documentation      | ✅ [docs/architecture.md](docs/architecture.md), [docs/api.md](docs/api.md)                                                                                                             |
-| Test results and performance numbers            | ✅ Test results, Lighthouse scores, DataGrid speed and size budgets ([docs/test-results.md](docs/test-results.md))                                                                      |
-| 10-minute presentation                          | ⚠️ Deck drafted: 8 timed slides plus 4 backup slides, with speaker notes ([slides](https://claude.ai/artifact/FGaSo73479RsuYscMwmfqw)); owner to personalise slide 4 notes and rehearse |
-| Individual reflection                           | ❌ To be written by the owner ([docs/reflection.md](docs/reflection.md))                                                                                                                |
+| Deliverable                                     | Status                                                                                                                                                                                                                                  |
+| ----------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Working demo (deployed or screen-recorded)      | ✅ Live on GitHub Pages: https://rachit1234766.github.io/F3-02/ (since 12 Nov 2026; `pages.yml` redeploys on every push to `main`). Also shown in the presentation video                                                                |
+| GitHub repository: clean commits, README, setup | ✅ Public: [rAcHiT1234766/F3-02](https://github.com/rAcHiT1234766/F3-02); CI passed on the first push. History restarts at 1 Nov 2026 (earlier history was lost)                                                                        |
+| Architecture diagram and API documentation      | ✅ [docs/architecture.md](docs/architecture.md), [docs/api.md](docs/api.md)                                                                                                                                                             |
+| Test results and performance numbers            | ✅ Test results, Lighthouse scores, DataGrid speed and size budgets ([docs/test-results.md](docs/test-results.md))                                                                                                                      |
+| 10-minute presentation                          | ✅ Deck: 8 timed slides plus 4 backup slides, with speaker notes ([slides](https://claude.ai/artifact/FGaSo73479RsuYscMwmfqw)). Recorded 12 Nov 2026 as a 9:10 video; the video file is kept outside the repo and still needs uploading |
+| Individual reflection                           | ✅ Written 2 Nov 2026 with AI help from the project records and the owner's answers ([docs/reflection.md](docs/reflection.md))                                                                                                          |
 
 ## Verified results (latest run)
 
@@ -45,6 +46,7 @@ Links: [GitHub](https://github.com/rAcHiT1234766/F3-02) · [Live Storybook](http
 - Lighthouse 13.5.0: desktop 100 / 100 / 100 / 100, mobile 99 / 100 / 100 / 100 (performance / accessibility / best practices / SEO)
 - DataGrid at 10,000 rows: every interaction under 6 ms in 0.2.0, search included; 0.1.0 took 16 ms to refine a search and 5.6 ms to tick a row on the same laptop ([before and after](docs/test-results.md#datagrid-020-memoisation))
 - Size budgets: Button adds 0.3 KB and DataGrid 3.0 KB of gzipped JavaScript to an app (limits 1 KB / 5 KB)
+- GitHub Pages (12 Nov 2026): the live demo and its `?view=foundation` page load in headless Chrome with no console errors or failed requests
 - GitHub Actions on Ubuntu (1 Nov 2026): `npm ci`, `check`, coverage, Storybook build, Storybook interaction and axe tests, and `pack:check` all pass
 
 ## Waiting on the owner
@@ -60,7 +62,8 @@ Links: [GitHub](https://github.com/rAcHiT1234766/F3-02) · [Live Storybook](http
 2. ✅ **NVDA screen-reader review:** done 1 Nov 2026. 18 of 18 checks pass with no defects ([docs/manual-review.md](docs/manual-review.md)).
 3. ✅ **npm publication:** done 1 Nov 2026. `@rachitp72/foundation-ui@0.1.0` is live; 0.2.0 followed the same day (DataGrid controlled selection and faster updates, [release notes](docs/release.md)). A clean install of each from npm builds and passes the browser check.
 4. ✅ **GitHub:** pushed 1 Nov 2026 to [rAcHiT1234766/F3-02](https://github.com/rAcHiT1234766/F3-02); CI passes.
-5. **Presentation and reflection.**
+5. ✅ **Presentation and reflection:** the reflection was written 2 Nov 2026; the presentation was recorded 12 Nov 2026 as a 9:10 video.
+6. ✅ **Demo hosting:** GitHub Pages turned on and the deploy workflow merged 12 Nov 2026 (PR #1); the demo is live.
 
 ## Enhancements
 
@@ -75,6 +78,7 @@ Links: [GitHub](https://github.com/rAcHiT1234766/F3-02) · [Live Storybook](http
 ## Suggested next steps
 
 - **Build:** optional: official `@tokens-studio/sd-transforms` in the token build.
-- **Owner:** a demo recording (or a hosted demo), the individual reflection, and personalising
-  and rehearsing the presentation.
-- **Final week:** presentation, reflection and rehearsal.
+- **Owner:** upload the presentation video, share the deck, and assemble the submission
+  folder.
+- **By 19 Nov:** open every reviewer link in a private browser window to check it works
+  without signing in.
