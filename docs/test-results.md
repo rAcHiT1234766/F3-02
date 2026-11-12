@@ -37,7 +37,7 @@ to be the latest toolchain.
 | Tree-shaking                          | Button-only and DataGrid-only bundles: 0 calendar modules                                                                                                                                                                                                           | Measured in the independent consumer                                                 |
 | Screen reader review                  | Passed 1 Nov 2026: NVDA 2026.3 with Chrome, 18 of 18 dashboard checks ([manual review](manual-review.md))                                                                                                                                                           | Dashboard only: 15 of 44 components; NVDA and Chrome only                            |
 | Chromatic visual baseline             | Baseline build 1 (191 snapshots), updated by reviewed builds since; interaction stories snapshot open overlays. Clock frozen to 2026-10-23 during Chromatic runs so calendars do not change daily. Storybook: https://main--6adb1ea72d119416b1620b45.chromatic.com/ | See regression demonstration below                                                   |
-| Package publication                   | Published 0.1.0 and 0.2.0 to npm on 1 Nov 2026; each installed from the registry into a clean app, which builds and passes the consumer browser check                                                                                                               | Demo hosting not done; the demo runs locally                                         |
+| Package publication                   | Published 0.1.0 and 0.2.0 to npm on 1 Nov 2026; each installed from the registry into a clean app, which builds and passes the consumer browser check                                                                                                               | Demo hosted on GitHub Pages since 12 Nov 2026                                        |
 
 ## Visual regression demonstration (Chromatic)
 
@@ -48,8 +48,8 @@ components that contain buttons (AlertDialog, Button, Card, DataGrid, DatePicker
 DropdownMenu, Pagination, Popover, SearchInput and others). The owner reviewed the
 side-by-side diffs, commented on AlertDialog/Default, and denied the changes:
 0 accepted, 56 denied, 0 unreviewed. Build 1 remains the baseline; the branch was
-deleted and `main` never contained the regression. Screenshots:
-`artifacts/chromatic-screenshots/` (local, not committed).
+deleted and `main` never contained the regression. The review is kept in Chromatic
+(build 2), and a screenshot is in [images/chromatic-review.png](images/chromatic-review.png).
 
 ## Chromatic build 5 review
 
@@ -177,9 +177,11 @@ The first run scored 96 for best practices and 82 for SEO: a missing favicon log
 404, the page had no meta description, and `robots.txt` returned the app's HTML. All
 three were fixed.
 
-Reports: `artifacts/package-check.json`, `artifacts/perf-datagrid.json`,
+Reports: the commands above write `artifacts/package-check.json`, `artifacts/perf-datagrid.json`,
 `artifacts/lighthouse-*.json`, `artifacts/token-contrast.json`,
-`artifacts/jest-results.json`, `artifacts/storybook-check.json`, `coverage/`.
+`artifacts/jest-results.json`, `artifacts/storybook-check.json` and `coverage/`. These
+folders are not committed; rerun the commands to recreate them. GitHub Actions also keeps
+the reports from each CI run as a downloadable artifact.
 
 ## Failures and fixes (23 October 2026)
 

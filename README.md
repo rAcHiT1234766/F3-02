@@ -4,7 +4,7 @@ An accessible, token-driven React component library: **44 components**, light an
 themes generated from **Figma** through **Style Dictionary**, documented in **Storybook**,
 visually tested with **Chromatic**, and proven in a working **employee dashboard**.
 
-**[Live Storybook](https://main--6adb1ea72d119416b1620b45.chromatic.com/)** · **[npm](https://www.npmjs.com/package/@rachitp72/foundation-ui)** ·
+**[Live demo](https://rachit1234766.github.io/F3-02/)** · **[Live Storybook](https://main--6adb1ea72d119416b1620b45.chromatic.com/)** · **[npm](https://www.npmjs.com/package/@rachitp72/foundation-ui)** ·
 **[Figma tokens file](https://www.figma.com/design/SP7lRRZBFGGODBBi8uLCDk/I01)** ·
 [Test results](docs/test-results.md) · [Component inventory](docs/component-inventory.md)
 
@@ -179,9 +179,9 @@ docs/            architecture, API, decisions, test results, guides
 | Chromatic visual testing          | Done                                                                                                  |
 | Manual NVDA review                | Done: 18 of 18 checks pass                                                                            |
 | Registry publication (semver)     | Published: `@rachitp72/foundation-ui@0.2.0` (MIT); 0.1.0 before it ([release notes](docs/release.md)) |
-| Hosted demo                       | Planned; runs locally today                                                                           |
+| Hosted demo                       | Live on GitHub Pages: https://rachit1234766.github.io/F3-02/ (redeployed on every push to `main`)     |
 
-Full status and next steps: [PROJECT-STATUS.md](PROJECT-STATUS.md). More detail: [progress](docs/progress.md), [architecture](docs/architecture.md),
+Full status and next steps: [PROJECT-STATUS.md](PROJECT-STATUS.md). More detail: [architecture](docs/architecture.md),
 [API](docs/api.md), [decisions](docs/decisions.md), [release checklist](docs/release.md).
 
 ## Built with
