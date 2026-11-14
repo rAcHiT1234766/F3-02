@@ -20,8 +20,8 @@ visually tested with **Chromatic**, and proven in a working **employee dashboard
 - **Accessibility first.** Targets WCAG 2.2 AA: labelled fields, announced errors,
   focus trapping and restoring dialogs, keyboard-operable menus, tabs, calendar and
   combobox. axe runs in unit tests and in real Chrome in both themes.
-- **Tested at every level.** 67 behaviour tests (Jest + Testing Library) with 97% line
-  coverage, 12 keyboard interaction tests in Storybook, axe on every story in Chrome,
+- **Tested at every level.** 72 behaviour tests (Jest + Testing Library) with 98% line
+  coverage, 13 keyboard interaction tests in Storybook, axe on every story in Chrome,
   browser workflow tests, Chromatic visual snapshots, and a check that
   installs the packed library into a separate app.
 - **Fast and light.** Lighthouse scores of 100 for performance, accessibility, best practices and SEO; DataGrid stays responsive with 10,000 rows. Ships compiled CSS (no Tailwind setup needed) and one ES module
