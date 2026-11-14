@@ -26,14 +26,14 @@ Links: [GitHub](https://github.com/rAcHiT1234766/F3-02) · [Live demo](https://r
 
 ## Submission deliverables
 
-| Deliverable                                     | Status                                                                                                                                                                                                                                  |
-| ----------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Working demo (deployed or screen-recorded)      | ✅ Live on GitHub Pages: https://rachit1234766.github.io/F3-02/ (since 12 Nov 2026; `pages.yml` redeploys on every push to `main`). Also shown in the presentation video                                                                |
-| GitHub repository: clean commits, README, setup | ✅ Public: [rAcHiT1234766/F3-02](https://github.com/rAcHiT1234766/F3-02); CI passed on the first push. History restarts at 1 Nov 2026 (earlier history was lost)                                                                        |
-| Architecture diagram and API documentation      | ✅ [docs/architecture.md](docs/architecture.md), [docs/api.md](docs/api.md)                                                                                                                                                             |
-| Test results and performance numbers            | ✅ Test results, Lighthouse scores, DataGrid speed and size budgets ([docs/test-results.md](docs/test-results.md))                                                                                                                      |
-| 10-minute presentation                          | ✅ Deck: 8 timed slides plus 4 backup slides, with speaker notes ([slides](https://claude.ai/artifact/FGaSo73479RsuYscMwmfqw)). Recorded 12 Nov 2026 as a 9:10 video; the video file is kept outside the repo and still needs uploading |
-| Individual reflection                           | ✅ Written 2 Nov 2026 with AI help from the project records and the owner's answers ([docs/reflection.md](docs/reflection.md))                                                                                                          |
+| Deliverable                                     | Status                                                                                                                                                                                                           |
+| ----------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Working demo (deployed or screen-recorded)      | ✅ Live on GitHub Pages: https://rachit1234766.github.io/F3-02/ (since 12 Nov 2026; `pages.yml` redeploys on every push to `main`). Also shown in the presentation video                                         |
+| GitHub repository: clean commits, README, setup | ✅ Public: [rAcHiT1234766/F3-02](https://github.com/rAcHiT1234766/F3-02); CI passed on the first push. History restarts at 1 Nov 2026 (earlier history was lost)                                                 |
+| Architecture diagram and API documentation      | ✅ [docs/architecture.md](docs/architecture.md), [docs/api.md](docs/api.md)                                                                                                                                      |
+| Test results and performance numbers            | ✅ Test results, Lighthouse scores, DataGrid speed and size budgets ([docs/test-results.md](docs/test-results.md))                                                                                               |
+| 10-minute presentation                          | ✅ Deck: 8 timed slides plus 4 backup slides ([slides PDF](docs/presentation/foundation-ui-slides.pdf)). Recorded 12 Nov 2026 as a 9:10 video; the video file is kept outside the repo and still needs uploading |
+| Individual reflection                           | ✅ Written 2 Nov 2026 with AI help from the project records and the owner's answers ([docs/reflection.md](docs/reflection.md))                                                                                   |
 
 ## Verified results (latest run)
 

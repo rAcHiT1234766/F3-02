@@ -156,8 +156,7 @@ the code. A safe change is the corner radius, because it does not affect colour 
 1. Press **Windows + E** to open File Explorer and go to **Downloads**.
 2. Find **tokens.json** (if you exported more than once it may be
    **tokens (1).json**, so take the newest one). Right-click it → **Copy**.
-3. Go to `C:\Users\Rachit\Pictures\foundation-platform\packages\tokens\figma\`
-   and press **Ctrl + V**.
+3. Go to the project's `packages\tokens\figma\` folder and press **Ctrl + V**.
 4. Make sure the file is named exactly **tokens.json** (right-click → **Rename** if needed).
 
 ## Part 10 — Share the Figma link
@@ -165,11 +164,11 @@ the code. A safe change is the corner radius, because it does not affect colour 
 1. In Figma, click the blue **Share** button (top-right).
 2. Set access to **Anyone with the link → can view**.
 3. Click **Copy link**.
-4. Send that link to Claude together with the word **done**.
+4. Keep the link: it is recorded in the token provenance notes and the README.
 
 ---
 
-## What happens next (Claude does this)
+## What happens next (developer step)
 
 ```powershell
 npm run tokens:import     # reads packages/tokens/figma/tokens.json, validates, updates source/

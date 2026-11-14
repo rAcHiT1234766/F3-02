@@ -1,6 +1,6 @@
 # Individual reflection
 
-> Written with Claude Code (AI) on 2 November 2026 from the project's records (commits, test
+> Written with an AI assistant on 2 November 2026 from the project's records (commits, test
 > results, review logs) and my answers to its questions about my own experience.
 
 ## 1. What I owned, implemented and reviewed
@@ -84,7 +84,7 @@ made sense, but it got easier once I knew them. The review covered only the dash
 
 ## 6. Where AI assisted, and how I verified it
 
-An AI coding assistant (Claude Code) wrote most of the code, tests, scripts and
+An AI coding assistant wrote most of the code, tests, scripts and
 documentation. I checked its output through:
 
 - **Automated checks**, run locally and on GitHub Actions for every push: lint, type
